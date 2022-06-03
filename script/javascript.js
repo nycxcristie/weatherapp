@@ -153,11 +153,8 @@ function showPosition(position) {
 }
 
 function searchLocal(event) {
-  // event.preventDefault();
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 let tButton = document.querySelector("#current-loc-temp-button");
 tButton.addEventListener("click", searchLocal);
-
-//when page loads show weather for current location
-searchLocal();
