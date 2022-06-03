@@ -2,7 +2,7 @@ body {
   color: rgb(108, 108, 108);
 }
 .container {
-  padding: 50px 50px;
+  padding: 50px 50px 10px 50px;
   font-family: "Work Sans", sans-serif;
 }
 .card {
@@ -104,4 +104,11 @@ body {
 .fahrenheitCelcius {
   font-size: 18px;
   vertical-align: super;
+}
+
+.footer {
+  color: #000000;
+  padding: 0px 600px 20px 550px;
+  display: block;
+  margin: 0 auto;
 }
