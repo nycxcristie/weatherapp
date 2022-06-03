@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V3.0 SheCodes Homework Week 5</title>
+
+    <!--axios start-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--axios end-->
+
+    <!--bootstrap start-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!--bootstrap end-->
+
+    <!--fontawesome start-->
+    <script
+      src="https://kit.fontawesome.com/bbcd9c1c1b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--fontawesome end-->
+
+    <!--google font start-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!--google font end-->
+
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" style="width: 50rem">
+        <div class="card-body">
+          <form id="update-city">
+            <div class="enterLocation">
+              <input
+                type="text"
+                placeholder="Enter City or Zip"
+                id="update-city-input"
+              />
+              <input type="submit" value="Go" id="go-button" /> or
+              <button id="current-loc-temp-button">
+                Temperature of your current location
+              </button>
+            </div>
+          </form>
+
+          <div class="row">
+            <!-- <div class="col-1 weatherNowIcon">
+              <i class="fa-solid fa-sun"></i>
+            </div> -->
+            <div class="col-3 degreesNow">
+              <span class="tempNow" id="current-loc-temp"></span
+              ><span class="fahrenheitCelcius">
+                <!-- <a href="#" id="fahrenheit">°F </a>| -->
+                <!-- <a href="#" id="celcius"> °C </a> -->
+              </span>
+              <div class="row">
+                <div col class="col describeIcon" id="description-icon"></div>
+              </div>
+            </div>
+            <div class="col-3 moreWeatherInfo">
+              <div class="row-4">
+                <span class="feels" id="current-feels"></span>
+              </div>
+              <div class="row-5">
+                <span class="humid" id="current-humidity"></span>
+              </div>
+              <div class="row-6">
+                <span class="wind" id="current-wind"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row currentDate">
+            <div class="col-12" id="current-date-time">
+              Thursday April 28, 2022 7:15 AM
+            </div>
+          </div>
+
+          <div class="row currentLocation">
+            <div class="col-12" id="current-location"></div>
+          </div>
+
+          <div class="row fiveWeekdays">
+            <div class="col weekday">FRI</div>
+            <div class="col weekend">SAT</div>
+            <div class="col weekend">SUN</div>
+            <div class="col weekday">MON</div>
+            <div class="col weekday">TUE</div>
+          </div>
+
+          <div class="row fiveDates">
+            <div class="col date">4/29</div>
+            <div class="col date">4/30</div>
+            <div class="col date">5/1</div>
+            <div class="col date">5/2</div>
+            <div class="col date">5/3</div>
+          </div>
+
+          <div class="row fiveDatesIcons">
+            <div class="col dateIcon">
+              <i class="fa-solid fa-sun"></i>
+            </div>
+            <div class="col dateIcon">
+              <i class="fa-solid fa-sun"></i>
+            </div>
+            <div class="col dateIcon">
+              <i class="fa-solid fa-meteor"></i>
+            </div>
+            <div class="col dateIcon">
+              <i class="fa-solid fa-cloud-showers-heavy"></i>
+            </div>
+            <div class="col dateIcon">
+              <i class="fa-solid fa-cloud-showers-heavy"></i>
+            </div>
+          </div>
+
+          <div class="row fiveDatesTemp">
+            <div class="col temp">68°F</div>
+            <div class="col temp">61°F</div>
+            <div class="col temp">58°F</div>
+            <div class="col temp">56°F</div>
+            <div class="col temp">55°F</div>
+          </div>
+
+          <div class="row iconDescription">
+            <div class="col description">Sunny</div>
+            <div class="col description">Sunny</div>
+            <div class="col description">???</div>
+            <div class="col description">Heavy Rain</div>
+            <div class="col description">Heavy Rain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>hello</p>
+    <script src="script/javascript.js"></script>
+  </body>
+</html>

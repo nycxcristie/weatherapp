@@ -1,0 +1,107 @@
+body {
+  color: rgb(108, 108, 108);
+}
+.container {
+  padding: 50px 50px;
+  font-family: "Work Sans", sans-serif;
+}
+.card {
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.weatherNowIcon {
+  color: rgb(250, 232, 30);
+  font-size: 70px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.degreesNow {
+  margin: 35px 0 0 20px;
+  font-size: 60px;
+  padding: 0 0 0 0;
+}
+
+.describeIcon {
+  text-transform: capitalize;
+  font-size: 16px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 20px;
+  position: relative;
+  top: -20px;
+}
+
+.currentDate {
+  font-size: 16px;
+}
+
+.currentLocation {
+  font-size: 45px;
+  background-color: rgb(250, 232, 30);
+  margin: 0 50px 0 0;
+  border-radius: 0px 50px 50px 0px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 22px;
+  margin: 50px 30px 0 30px;
+  background-color: rgb(164, 212, 92);
+  border-radius: 50px 50px 0 0;
+  padding: 60px 0 0 0;
+}
+
+.weekend {
+  text-align: center;
+  color: #ffffff;
+  font-size: 22px;
+  margin: 50px 30px 0 30px;
+  background-color: rgb(164, 212, 92);
+  border-radius: 50px 50px 0 0;
+  padding: 60px 0 0 0;
+}
+
+.date {
+  text-align: center;
+  font-size: 16px;
+  margin: 0px 30px 0 30px;
+  background-color: rgb(164, 212, 92);
+  padding: 0 0 30px 0;
+}
+
+.dateIcon {
+  text-align: center;
+  font-size: 60px;
+  color: rgb(250, 232, 30);
+  margin: 0px 30px 0 30px;
+  background-color: rgb(164, 212, 92);
+  padding: 0 0px 30px 0px;
+}
+
+.moreWeatherInfo {
+  padding: 25px;
+  margin: 25px;
+}
+
+.temp {
+  text-align: center;
+  font-size: 30px;
+  margin: 0px 30px 0 30px;
+  background-color: rgb(164, 212, 92);
+  padding: 0 0 10px 0;
+}
+
+.description {
+  text-align: center;
+  font-size: 16px;
+  margin: 0px 30px 0 30px;
+  background-color: rgb(164, 212, 92);
+  padding: 0 0 30px 0;
+}
+
+.fahrenheitCelcius {
+  font-size: 18px;
+  vertical-align: super;
+}
