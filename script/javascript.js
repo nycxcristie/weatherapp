@@ -109,6 +109,8 @@ function showWeather(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let feelsLike = Math.round(response.data.main.feels_like);
   let humidity = response.data.main.humidity;
+  let icon = response.data.weather[0].icon;
+  console.log(icon);
 
   let currentCity = document.querySelector("#current-location");
   currentCity.innerHTML = cityName;
@@ -116,17 +118,23 @@ function showWeather(response) {
   let currentTemperature = document.querySelector("#current-loc-temp");
   currentTemperature.innerHTML = `${temperature}°F`;
 
-  let currentDescription = document.querySelector("#description-icon");
-  currentDescription.innerHTML = description;
-
   let currentWindSpeed = document.querySelector("#current-wind");
-  currentWindSpeed.innerHTML = `Wind: ${windSpeed} km/h`;
+  currentWindSpeed.innerHTML = `Windspeed: ${windSpeed} km/h`;
 
   let currentFeels = document.querySelector("#current-feels");
   currentFeels.innerHTML = `Feels like: ${feelsLike}°F`;
 
   let currentHumidity = document.querySelector("#current-humidity");
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
+
+  let currentDescription = document.querySelector("#description");
+  currentDescription.innerHTML = description;
+
+  let currentWeatherIcon = document.querySelector("#current-weather-icon");
+  currentWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img//wn/${icon}@2x.png`
+  );
 }
 function showLatLon(response) {
   let lat = response.data[0].lat;
