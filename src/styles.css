@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  padding: 50px 50px 10px 50px;
+  max-width: 600px;
   font-family: "Work Sans", sans-serif;
 }
 
@@ -70,10 +70,7 @@ body {
 }
 
 .footer {
-  color: #000000;
-  padding: 0px 600px 20px 550px;
-  display: block;
-  margin: 0 auto;
+  padding: 10px 10px 10px 0;
 }
 
 .moreWeatherInfo {
@@ -87,6 +84,11 @@ body {
   margin: 0px 30px 0 30px;
   background-color: rgb(164, 212, 92);
   padding: 0 0 10px 0;
+}
+
+.weatherAppWrapper {
+  max-width: 600px;
+  padding-top: 50px;
 }
 
 .weatherIcon {
