@@ -173,7 +173,8 @@ let fahrenheitTemperature = null;
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let temperatureElement = document.querySelector("#current-loc-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
@@ -184,7 +185,8 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 //°F link
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-loc-temp");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }

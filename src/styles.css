@@ -47,6 +47,16 @@ body {
   padding: 0 0 0 0;
 }
 
+.degreesNow .active {
+  color: rgb(108, 108, 108);
+  cursor: default;
+  text-decoration: none;
+}
+
+.degreesNow .active:hover {
+  text-decoration: none;
+}
+
 .describeIcon {
   text-transform: capitalize;
   font-size: 16px;
