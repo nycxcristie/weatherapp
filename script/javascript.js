@@ -97,26 +97,26 @@ dateTime.innerHTML = `${dateTimeNow}`;
 //
 //wk5 hw
 //FIRSTPART
-//Inputting "City Value"
+//Inputting "City Value to get temp"
 
 let apiKey = "8b21896e87d6fc275866fc5f0dc04389";
 let unit = "imperial";
 
 function showWeather(response) {
+  fahrenheitTemperature = response.data.main.temp;
   let cityName = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(fahrenheitTemperature);
   let description = response.data.weather[0].description;
   let windSpeed = Math.round(response.data.wind.speed);
   let feelsLike = Math.round(response.data.main.feels_like);
   let humidity = response.data.main.humidity;
   let icon = response.data.weather[0].icon;
-  console.log(icon);
 
   let currentCity = document.querySelector("#current-location");
   currentCity.innerHTML = cityName;
 
   let currentTemperature = document.querySelector("#current-loc-temp");
-  currentTemperature.innerHTML = `${temperature}°F`;
+  currentTemperature.innerHTML = `${temperature}`;
 
   let currentWindSpeed = document.querySelector("#current-wind");
   currentWindSpeed.innerHTML = `Windspeed: ${windSpeed} km/h`;
@@ -152,7 +152,7 @@ function search(event) {
 let goButton = document.querySelector("#update-city");
 goButton.addEventListener("submit", search);
 
-//PartII Bonus
+//hw part II get local coordinates and get temp
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -166,3 +166,28 @@ function searchLocal(event) {
 }
 let tButton = document.querySelector("#current-loc-temp-button");
 tButton.addEventListener("click", searchLocal);
+
+//°C link
+let fahrenheitTemperature = null;
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+
+  let temperatureElement = document.querySelector("#current-loc-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+//°F link
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+
+  let temperatureElement = document.querySelector("#current-loc-temp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
