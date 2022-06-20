@@ -167,6 +167,8 @@ function searchLocal(event) {
 let tButton = document.querySelector("#current-loc-temp-button");
 tButton.addEventListener("click", searchLocal);
 
+city = "new york";
+
 //°C link
 let fahrenheitTemperature = null;
 
