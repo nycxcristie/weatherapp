@@ -99,8 +99,16 @@ dateTime.innerHTML = `${dateTimeNow}`;
 //FIRSTPART
 //Inputting "City Value to get temp"
 
-let apiKey = "8b21896e87d6fc275866fc5f0dc04389";
+let apiKey = "4968c75d8f2ad2778abebf3da642526a";
 let unit = "imperial";
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "8b21896e87d6fc275866fc5f0dc04389";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showWeather(response) {
   fahrenheitTemperature = response.data.main.temp;
@@ -135,13 +143,17 @@ function showWeather(response) {
     "src",
     `http://openweathermap.org/img//wn/${icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
+
 function showLatLon(response) {
   let lat = response.data[0].lat;
   let lon = response.data[0].lon;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 }
+
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#update-city-input");
@@ -149,6 +161,7 @@ function search(event) {
   let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
   axios.get(apiUrl).then(showLatLon);
 }
+
 let goButton = document.querySelector("#update-city");
 goButton.addEventListener("submit", search);
 
@@ -197,7 +210,8 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 //5 dau forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -222,5 +236,3 @@ function displayForecast() {
 
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
