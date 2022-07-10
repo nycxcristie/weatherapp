@@ -92,6 +92,13 @@ dateTime.innerHTML = `${dateTimeNow}`;
 //
 //
 //
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 //
 //
 //
@@ -211,25 +218,38 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 //5 dau forecast
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
                   <div class="col">
-                    <div class="weekday">${day}</div>
+                    <div class="weekday">${formatDay(forecastDay.dt)}</div>
                     <div class="date">4/29</div>
                     <div class="dateIcon">
-                      <i class="fa-solid fa-sun"></i>
+
+                      <img src="http://openweathermap.org/img//wn/${
+                        forecastDay.weather[0].icon
+                      }@2x.png" alt "" width= "100">
                     </div>
+                     <div class="description">${
+                       forecastDay.weather[0].description
+                     }</div>
                     <div class="temp">68°F</div>
-                    <div class="description">Sunny</div>
+                    <div class="max">hi: ${Math.round(
+                      forecastDay.temp.max
+                    )}°F</div>
+                    <div class="min">lo: ${Math.round(
+                      forecastDay.temp.max
+                    )}°F</div>
                   </div>
     `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
