@@ -102,10 +102,6 @@ body {
   padding-top: 50px;
 }
 
-.weather-forecast {
-  max-width: 150px;
-}
-
 .weatherIcon {
   font-size: 70px;
   padding: 10px;
