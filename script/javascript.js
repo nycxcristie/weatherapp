@@ -195,3 +195,43 @@ function displayFahrenheitTemperature(event) {
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+//5 dau forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `
+                <div class="col">
+                  <div class="weekday">FRI</div>
+                  <div class="date">4/29</div>
+                  <div class="dateIcon">
+                    <i class="fa-solid fa-sun"></i>
+                  </div>
+                  <div class="temp">68°F</div>
+                  <div class="description">Sunny</div>
+                </div>
+  `;
+
+  forecastHTML =
+    forecastHTML +
+    `
+                <div class="col">
+                  <div class="weekday">FRI</div>
+                  <div class="date">4/29</div>
+                  <div class="dateIcon">
+                    <i class="fa-solid fa-sun"></i>
+                  </div>
+                  <div class="temp">68°F</div>
+                  <div class="description">Sunny</div>
+                </div>
+  `;
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
