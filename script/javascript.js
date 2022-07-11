@@ -161,16 +161,20 @@ function showLatLon(response) {
   axios.get(apiUrl).then(showWeather);
 }
 
-function search(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#update-city-input");
-  let city = searchInput.value;
+function search(city) {
   let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
   axios.get(apiUrl).then(showLatLon);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#update-city-input");
+  let city = searchInput.value;
+  search(city);
+}
+
 let goButton = document.querySelector("#update-city");
-goButton.addEventListener("submit", search);
+goButton.addEventListener("submit", handleSubmit);
 
 //hw part II get local coordinates and get temp
 function showPosition(position) {
@@ -187,35 +191,6 @@ function searchLocal(event) {
 let tButton = document.querySelector("#current-loc-temp-button");
 tButton.addEventListener("click", searchLocal);
 
-city = "new york";
-
-//°C link
-let fahrenheitTemperature = null;
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let temperatureElement = document.querySelector("#current-loc-temp");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-//°F link
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#current-loc-temp");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
 //5 dau forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -230,7 +205,6 @@ function displayForecast(response) {
         `
                   <div class="col">
                     <div class="weekday">${formatDay(forecastDay.dt)}</div>
-                    <div class="date">4/29</div>
                     <div class="dateIcon">
 
                       <img src="http://openweathermap.org/img//wn/${
@@ -256,3 +230,5 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHTML;
 }
+
+search("New York");
