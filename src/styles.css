@@ -24,7 +24,7 @@ body {
 }
 
 .currentLocation {
-  font-size: 45px;
+  font-size: 65px;
   background-color: rgb(250, 232, 30);
   margin: 0 50px 0 0;
   border-radius: 0px 50px 50px 0px;
@@ -76,11 +76,16 @@ body {
   font-size: 16px;
   margin: 0px 30px 0 30px;
   background-color: rgb(164, 212, 92);
-  padding: 0 0 30px 0;
+  padding: 0 0 10px 0;
 }
 
 .fahrenheit {
   font-size: 25px;
+  vertical-align: super;
+}
+
+.fahrenheit2 {
+  font-size: 10px;
   vertical-align: super;
 }
 
@@ -89,8 +94,7 @@ body {
   color: #000000;
 }
 
-.max,
-.min {
+.maxMin {
   text-align: center;
   font-size: 14px;
   margin: 0px 30px 0 30px;
@@ -105,7 +109,7 @@ body {
 
 .temp {
   text-align: center;
-  font-size: 40px;
+  font-size: 60px;
   margin: 0px 30px 0 30px;
   background-color: rgb(164, 212, 92);
   padding: 0 0 10px 0;
@@ -124,11 +128,11 @@ body {
 
 .weekday {
   text-align: center;
-  font-size: 22px;
+  font-size: 35px;
   margin: 50px 30px 0 30px;
   background-color: rgb(164, 212, 92);
-  border-radius: 50px 50px 0 0;
-  padding: 60px 0 0 0;
+  border-radius: 80px 80px 0 0;
+  padding: 80px 0 0 0;
 }
 
 .weekend {

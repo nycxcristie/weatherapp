@@ -110,10 +110,8 @@ let apiKey = "4968c75d8f2ad2778abebf3da642526a";
 let unit = "imperial";
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "8b21896e87d6fc275866fc5f0dc04389";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -154,6 +152,7 @@ function showWeather(response) {
   getForecast(response.data.coord);
 }
 
+//get latitude and longitude
 function showLatLon(response) {
   let lat = response.data[0].lat;
   let lon = response.data[0].lon;
@@ -166,6 +165,7 @@ function search(city) {
   axios.get(apiUrl).then(showLatLon);
 }
 
+//NY is default city
 function handleSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#update-city-input");
@@ -211,19 +211,22 @@ function displayForecast(response) {
                         forecastDay.weather[0].icon
                       }@2x.png" alt "" width= "100">
                     </div>
-                     <div class="description">${
-                       forecastDay.weather[0].description
-                     }</div>
-                    <div class="temp">68°F</div>
-                    <div class="max">hi: ${Math.round(
+  
+    <div class="description">${forecastDay.weather[0].description}</div>
+
+                    <div class="temp"> ${Math.round(
+                      forecastDay.temp.day
+                    )}<span class= "fahrenheit">°F</span></div>
+                    
+                    <div class="maxMin"><b>hi:${Math.round(
                       forecastDay.temp.max
-                    )}°F</div>
-                    <div class="min">lo: ${Math.round(
-                      forecastDay.temp.max
-                    )}°F</div>
+                    )}° </b> lo:${Math.round(forecastDay.temp.max)}°</div>
                   </div>
+          
     `;
     }
+
+    console.log(forecastDay);
   });
 
   forecastHTML = forecastHTML + `</div>`;
